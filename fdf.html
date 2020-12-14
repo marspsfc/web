@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+         <script src="https://jwpsrv.com/library/ejuoyqCsEeK4ayIACpYGxA.js"></script>
+<style type="text/css"> 
+body{bgcolor:#f0f0f0;}
+#reproductor_aspect{display: none;}
+#reproductor_jwpsrv{position: absolute; top: 0px; z-index: 10;}
+#reproductor_wrapper{position: relative; display: block; width: 700px; height: 400px;}
+</style>
+<script>// <![CDATA[
+jwplayer.key="6RfMdMqZkkH88h026pcTaaEtxNCWrhiF6ACoxKXjjiI=";
+// ]]></script> 
+
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+ <meta charset="UTF-8">
+  <title>SOCRAM TV</title>
+  <link rel="manifest" href="manifest.json"></link>
+  <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:300" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="description" content="socramtv">
+              <meta name="author" content="socramtv">
+  
+      <link rel="stylesheet" href="css/tyle.css">
+
+  <style>
+html {
+   background-color: #000;
+   }
+  
+  
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'San Francisco', 'Lato', sans-serif;
+
+background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(8,0,2,1) 0%);
+
+  
+}
+
+nav {
+  background-color: rgba(0,0,0,.8);
+  transition: all 3s ease;
+  overflow: hidden;
+}
+
+nav.dark {
+    background-color: rgba(0,0,0,.9);
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+
+}
+
+nav .menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa.fa-apple {
+  font-size: 25px;
+}
+
+nav .menu a {
+  padding: 15px;
+  transition: all .3s ease;
+  transition-delay: .1s;
+}
+
+nav.dark .menu a:last-child {
+  transition-delay: 1s;
+  transform: translateX(100%);
+}
+
+.menu-icon-box {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;  
+}
+
+.menu-icon {
+  position: relative;
+  padding: 1px 12px;  
+  background-color: white;
+  transition: all .3s ease;
+}
+
+.menu-icon-box.open .menu-icon:first-child {
+  transform: rotateZ(45deg);
+  position: absolute;
+}
+
+.menu-icon-box.open .menu-icon:last-child {
+  transform: rotateZ(-45deg);
+}
+
+.submenu {
+  height: 0;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.submenu ul {
+  padding: 30px 45px;
+  margin: 0;
+  list-style: none;
+  font-size: 12px;
+}
+
+.submenu li {
+  padding: 12px 0;
+  border-bottom: 0px solid grey;
+  opacity: 0;
+}
+
+.submenu.open li {
+  animation: cortina .1s linear;
+  animation-fill-mode: forwards;
+}
+
+.submenu li:nth-child(2) {
+  animation-delay: .1s;
+}
+
+.submenu li:nth-child(3) {
+  animation-delay: .2s;
+}
+
+.submenu li:nth-child(4) {
+  animation-delay: .3s;
+}
+
+.submenu li:nth-child(5) {
+  animation-delay: .4s;
+}
+
+.submenu li:nth-child(6) {
+  animation-delay: .5s;
+}
+
+.submenu li:nth-child(7) {
+  animation-delay: .6s;
+}
+
+.submenu li:nth-child(8) {
+  animation-delay: .7s;
+}
+
+@keyframes cortina {
+  0% {
+    transform: translate(-25px,-25px);
+  }
+  
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.submenu.open {
+  height: calc(75vh - 55px);
+  min-height: 0px;
+}
+
+.submenu li:last-child {
+  border-color: black;
+}
+
+.submenu li:last-child i {
+  margin-right: 10px;
+}
+
+.menu-slider {
+  background-color: black;
+  padding: 10px;
+  display: flex;
+  overflow-x: none;
+}
+
+.menu-slider-item {
+  padding: 0px 25px;
+  display: block;
+  color: white;
+}
+
+.menu-slider-item img {
+  display: block;
+  margin: auto;
+}
+
+.menu-slider h6 {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+
+.menu-slider-item h6:last-child {
+  color: white;
+}
+
+.menu-slider-item h7:last-child {
+  color: orange;
+}
+
+nav.dark + .menu-slider {
+  display: none;
+}
+
+video {
+    width: 390px;
+    height: 220px;
+    color: #f80;
+    text-align: center;
+    font-size: 20px;
+  border: white 0px solid;
+  border-radius:0px 0px 0px 0px;
+  
+
+}
+.cuadrado {
+     width: 10px; 
+     height: 10px; 
+     background: #fff;
+}
+.cuadrado3 {
+     width: 390px; 
+     height: 5px; 
+     background: #fff;
+}
+
+.cuadrado2{
+    width: 250px;
+    height: 0px;
+    border-right: 60px solid transparent;
+    border-left: 60px solid transparent;
+    border-bottom: 20px solid #fff;
+}
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+ 
+.texto-encima{
+    position: up;
+    font-size: 10px;
+
+    color: #ddd;
+}
+.centrado{
+    position: down;
+   font-size: 10px;
+
+    color: #ddd;
+}
+
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:700italic,400,400italic,700);
+/* CSS Button */
+
+
+
+.butt {
+	font-size: .825em;
+	text-decoration: none;
+	font-weight: 700;
+	padding: .35em 1em;
+	background-color: #000;
+	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+	border-radius: 1px;
+	color: rgba(0,0,0,.0);
+	text-shadow: 0 1px 1px rgba(255,255,255,.7);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.2), inset 0 1px 2px rgba(255,255,255,.7);
+}
+
+.butt:hover, .butt.hover {
+	background-color: #fff;
+}
+
+.butt:active, .butt.active {
+	background-color: #d0d3d6;
+	background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,0));
+	box-shadow: inset 0 0 2px rgba(0,0,0,.2), inset 0 2px 5px rgba(0,0,0,.2), 0 1px rgba(255,255,255,.2);
+}
+
+
+</style>
+
+
+<style type="text/css">
+  .butt{
+    text-decoration: none;
+    padding: 12px;
+    font-family: Times New Roman;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 800;
+    font-size: 13px;
+    color: #FFFFFF;
+    background-color: #BA0000;
+  }
+  .butt:hover{
+    color: #FFFFFF;
+    background-color: #0000FF;
+    text-decoration: none;
+  }
+</style>
+
+</head>
+<body>
+<center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a href=/la1.html class=butt>LA 1</a><a href=/la2.html class=butt>LA 2</a><a href=/antena3.html class=butt>ANTENA 3</a><a href=/cuatro.html class=butt>CUATRO</a><a href=/telecinco.html class=butt>TELECINCO</a></p>
+<h3>  
+<p><a href=/la6.html class=butt>LA SEXTA</a><a href=/bemad.html class=butt>BE MAD</a><a href=/fdf.html class=butt>FDF</a><a href=/energy.html class=butt>ENERGY</a><a href=/dmax.html class=butt>DMAX</a</p>
+
+<p><a href=/laliga1.html class=butt>LA LIGA 1</a><a href=/laliga2.html class=butt>LA LIGA 2</a><a href=/laliga3.html class=butt>LA LIGA 3</a><a href=/ligacampeones.html class=butt>LIGA CAMPEONES</a></p>
+  <h3>
+
+<p><a href=/deportes.html class=butt>M.DEPORTES</a><a href=/formula1.html class=butt>FORMULA 1</a><a href=/motogp.html class=butt>MOTO GP</a><a href=/dazn.html class=butt>DAZN</a><a href=/goltv.html class=butt>GOL TV</a></p>
+
+
+<h3>
+<p><a href=/cine/cine.html class=butt>CINE</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</center>
+
+<!--
+
+<center>
+<FONT size="4" FACE="arial" Color="#FFFFFF">
+<MARQUEE    SCROLLAMOUNT=0  WIDTH=100% HEIGHT=30  BGCOLOR="">FDF</MARQUEE>
+</FONT>
+</center>
+
+ -->
+ 
+ 
+<center>
+<FONT size="3" FACE="arial" Color="#FFFFFF">
+<MARQUEE    SCROLLAMOUNT=1  WIDTH=100% HEIGHT=30  BGCOLOR="">FDF</MARQUEE>
+</FONT>
+</center>
+
+
+
+<center>
+
+<!--
+
+
+
+<video id="my_video_1" class="video-js vjs-big-play-centered" autoplay="1" muted="0" controls preload="auto" width="430" height="220" 
+  data-setup='{}'>
+    <source src="
+
+
+https://linear02-i.akamaihd.net/hls/live/837813/fdf/01.m3u8
+
+
+" type="application/x-mpegURL">
+
+  </video>
+
+-->
+
+<div id="video"></div>
+<script>
+var playerInstance = jwplayer("video");
+    playerInstance.setup({
+      file: "http://91.126.141.201:1935/live/fdf/.m3u8",
+      width: 430,
+      height: 220,
+       title: '',
+    image: "http://socramasp.tonohost.com/logos/fdf.png",
+      autostart: true,
+      mute: true //optional, but recommended
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+<div class="cuadrado"></div>
+
+<div class="cuadrado2"></div>
+
+-->
+
+
+<center>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</center>
+  
+
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://socramasp.tonohost.com/PRINCIPAL-blanco.png" alt="" width="179" height="151" /></p>
+<p style="text-align: center;"><a href="https://www.appcreator24.com/app1103998"><img src="http://socramasp.tonohost.com/android-descarga.png" width="204" height="52" /></a></p>
+
+</body>
+
+
+</html>
+
